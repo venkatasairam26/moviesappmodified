@@ -1,0 +1,16 @@
+.image-item {
+  height: 170px;
+  width: 255px;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .image-item {
+    height: 64px;
+    width: 90px;
+    left: 32px;
+    top: 439px;
+    border-radius: 8px;
+  }
+}

@@ -1,0 +1,122 @@
+.home-cont {
+  min-height: 100vh;
+  width: 100vw;
+
+  background: #131313;
+}
+.movie-title {
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 62px;
+  color: #ffffff;
+}
+.movie-overview {
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  color: #ffffff;
+}
+.paly-btn {
+  left: 164.5px;
+  top: 419px;
+  border-radius: 3px;
+  border-radius: 3px;
+  border: 0px;
+  padding: 0px;
+  width: 26px;
+  height: 24px;
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: #171f46;
+}
+.trending-now {
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 31px;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 769px) {
+  .home-poster {
+    width: 100vw;
+    background-size: cover;
+  }
+  .movie-title {
+    height: 62px;
+    left: 164px;
+    border-radius: 0px;
+  }
+  .movie-overview {
+    width: 50%;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  .paly-btn {
+    height: 40px;
+    width: 74px;
+    margin-bottom: 120px;
+  }
+  .home-movie-details {
+    padding-top: 75px;
+    padding-left: 145px;
+  }
+  .originals-trend-cont {
+    padding-left: 105px;
+  }
+  .trending-now {
+    height: 31px;
+    left: 165px;
+    padding-top: 35px;
+    padding-bottom: 24px;
+    border-radius: 0px;
+    padding-left: 55px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-poster {
+    width: 100%;
+  }
+  .movie-title {
+    font-size: 36px;
+    border-radius: 0px;
+    line-height: 47px;
+  }
+  .movie-overview {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  .paly-btn {
+    height: 32px;
+    width: 76px;
+    left: 0px;
+    top: 0px;
+    border-radius: 4px;
+    padding: 8px 24px 8px 24px;
+    margin-bottom: 24px;
+  }
+  .home-movie-details {
+    margin-left: 32px;
+  }
+  .trending-now {
+    font-size: 16px;
+    line-height: 21px;
+    margin-top: 32px;
+    margin-left: 32px;
+  }
+}

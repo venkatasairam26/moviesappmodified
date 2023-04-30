@@ -1,0 +1,11 @@
+.popular-page {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: #181818;
+}
+.popular-movies-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

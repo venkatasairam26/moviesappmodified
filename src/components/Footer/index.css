@@ -1,0 +1,46 @@
+.footer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #131313;
+  width: 100%;
+}
+.icon-cont {
+  padding-top: 10px;
+  height: 21px;
+  width: 145px;
+  display: flex;
+  justify-content: space-between;
+}
+.icons {
+  left: 45%;
+  right: 53.75%;
+  top: 90.78%;
+  bottom: 7.67%;
+
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #ffffff;
+}
+.contactUs-text {
+  left: 47.22%;
+  right: 47.22%;
+  top: 93.51%;
+  bottom: 4.72%;
+
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  color: #ffffff;
+}

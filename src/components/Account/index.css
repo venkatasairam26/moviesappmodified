@@ -1,0 +1,82 @@
+.account-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  background-size: cover;
+}
+.account-heading {
+  height: 47px;
+  width: 133px;
+  margin-top: 67px;
+  left: 11.46%;
+  right: 79.31%;
+  top: 16.31%;
+  bottom: 79.1%;
+
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 47px;
+  /* identical to box height */
+  color: #131313;
+}
+.account-card {
+  padding-left: 120px;
+  padding-right: 125px;
+}
+@media screen and (max-width: 769px) {
+  .account-card {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+.h-line {
+  left: 8.89%;
+  right: 8.89%;
+  top: 22.34%;
+  bottom: 77.34%;
+  height: 3px;
+  width: 100%;
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+.member-ship {
+  display: flex;
+}
+.user-details {
+  margin-left: 12px;
+}
+.plan-details {
+  display: flex;
+}
+.log-cont {
+  display: flex;
+  justify-content: center;
+}
+.logout-btn {
+  background: #e50914;
+  border-radius: 4px;
+  color: white;
+  border: none;
+  padding: 10px;
+}
+.details-text {
+  font-size: 18px;
+  line-height: 23px;
+  color: #94a3b8;
+}
+.plans {
+  font-size: 18px;
+  line-height: 23px;
+  color: #94a3b8;
+  padding-right: 10px;
+}
+.ultra-btn {
+  border: 2px solid black;
+  height: 25px;
+  width: 70px;
+  margin-left: 10px;
+  padding-left: 2px;
+}
