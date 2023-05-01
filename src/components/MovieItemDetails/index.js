@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import {format} from 'date-fns'
 
 import Header from '../Header/index'
 import Footer from '../Footer/index'
@@ -29,6 +30,7 @@ class MovieItemDetails extends Component {
   }
 
   getResponse = async () => {
+    this.setState({apiStatus: apiStatusConstants.inProgress})
     const {match} = this.props
     const {params} = match
     const {id} = params
@@ -78,17 +80,20 @@ class MovieItemDetails extends Component {
         }),
       )
 
-      this.setState(
-        {
-          apiStatus: apiStatusConstants.success,
-          movieDetailsList: updatedData,
-          genresList: genresData,
-          similarMoviesList: similarMoviesData,
-          spokenLanguagesList: spokenLanguagesData,
-        },
-        this.getResponse,
-      )
+      this.setState({
+        apiStatus: apiStatusConstants.success,
+        movieDetailsList: updatedData,
+        genresList: genresData,
+        similarMoviesList: similarMoviesData,
+        spokenLanguagesList: spokenLanguagesData,
+      })
+    } else {
+      this.setState({apiStatus: apiStatusConstants.failure})
     }
+  }
+
+  onClickRetry = () => {
+    this.getResponse()
   }
 
   renderSuccessView = () => {
@@ -110,7 +115,14 @@ class MovieItemDetails extends Component {
       ratingAverage,
       ratingCount,
     } = {...movieDetailsList[0]}
+
     const movieType = adult ? 'A' : 'U/A'
+    const hours = Math.floor(runtime / 60)
+    const remainingMins = Math.floor(runtime % 60)
+    const stringHour = hours > 9 ? `${hours}h` : `0${hours}h`
+    const stringMins =
+      remainingMins > 9 ? `${remainingMins}m` : `0${remainingMins}m`
+    const date = format(new Date(releaseDate), 'Lo MM yyyy')
     return (
       <>
         <div
@@ -121,9 +133,9 @@ class MovieItemDetails extends Component {
           <div className="details-down">
             <h1 className="header-title">{title}</h1>
             <div className="row-cont">
-              <h1 className="para">{runtime}</h1>
-              <div className="div">{movieType}</div>
-              <h1 className="para">{releaseDate}</h1>
+              <p className="para">{`${stringHour} ${stringMins}`}</p>
+              <p className="div">{movieType}</p>
+              <p className="para">{format(new Date(releaseDate), 'yyyy')}</p>
             </div>
             <p className="description">{overview}</p>
             <button className="play-btn" type="button">
@@ -167,7 +179,7 @@ class MovieItemDetails extends Component {
             </div>
             <div>
               <h1 className="genres-title">Release Date</h1>
-              <p className="genres-description">{releaseDate}</p>
+              <p className="genres-description">{date}</p>
             </div>
           </div>
         </div>
@@ -177,9 +189,23 @@ class MovieItemDetails extends Component {
             <MovieBlogs movieDetails={each} key={each.id} />
           ))}
         </ul>
+        <Footer />
       </>
     )
   }
+
+  renderFailureView = () => (
+    <div>
+      <Header />
+      <FailureView onClickRetry={this.onClickRetry} />
+    </div>
+  )
+
+  renderLoadingView = () => (
+    <div className="movie-items-loader">
+      <Loading />
+    </div>
+  )
 
   renderMoviesItemView = () => {
     const {apiStatus} = this.state
@@ -188,9 +214,9 @@ class MovieItemDetails extends Component {
       case apiStatusConstants.success:
         return this.renderSuccessView()
       case apiStatusConstants.inProgress:
-        return <Loading />
+        return this.renderLoadingView()
       case apiStatusConstants.failure:
-        return <FailureView />
+        return this.renderFailureView()
 
       default:
         return null
@@ -198,12 +224,7 @@ class MovieItemDetails extends Component {
   }
 
   render() {
-    return (
-      <div className="movie-item-cont">
-        {this.renderMoviesItemView()}
-        <Footer />
-      </div>
-    )
+    return <div className="movie-item-cont">{this.renderMoviesItemView()}</div>
   }
 }
 

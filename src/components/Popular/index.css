@@ -9,3 +9,10 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+.popular-loading {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

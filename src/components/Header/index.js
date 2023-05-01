@@ -72,7 +72,11 @@ class Header extends Component {
           </div>
           <div className="search-user">
             {inputBox ? (
-              <input type="search" onChange={this.getSearchValue} />
+              <input
+                type="search"
+                onChange={this.getSearchValue}
+                className="search-input-ele"
+              />
             ) : null}
             <div>
               <Link to="/search">

@@ -24,6 +24,7 @@ class Search extends Component {
   }
 
   getSearchResponse = async searchText => {
+    this.setState({apiStatus: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
     const apiUrl = `https://apis.ccbp.in/movies-app/movies-search?search=${searchText}`
     const options = {
@@ -87,13 +88,19 @@ class Search extends Component {
     this.getSearchResponse()
   }
 
+  renderLoadingView = () => (
+    <div className="popular-loading">
+      <Loading />
+    </div>
+  )
+
   renderSearchPage = () => {
     const {apiStatus} = this.state
     switch (apiStatus) {
       case apiStatusConstants.success:
         return this.renderSearchRoute()
       case apiStatusConstants.inProgress:
-        return <Loading />
+        return this.renderLoadingView()
       case apiStatusConstants.failure:
         return <FailureView onClickRetry={this.onClickRetry} />
 

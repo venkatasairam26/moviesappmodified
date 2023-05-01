@@ -1,6 +1,13 @@
 .movie-item-cont {
+  min-height: 100vh;
   width: 100vw;
   background: #181818;
+}
+.movie-items-loader {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .movie-item-card {
   height: 75vh;

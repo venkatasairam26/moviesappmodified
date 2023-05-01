@@ -1,0 +1,35 @@
+.failure-cont-original {
+  height: 130px;
+  width: 1109px;
+  border-radius: 8px;
+  background-color: #0d0d0d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 60px;
+  margin-bottom: 40px;
+}
+.failure-logo-org {
+  height: 23px;
+  width: 28px;
+  left: 1.3349609375px;
+  top: 2.666259765625px;
+  border-radius: 0px;
+}
+.failure-btn-org {
+  height: 32px;
+  width: 85px;
+  left: 677.5px;
+  top: 1071px;
+  border-radius: 3px;
+}
+.failure-msg-org {
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+
+  color: #ffffff;
+}

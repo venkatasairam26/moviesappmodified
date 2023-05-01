@@ -16,7 +16,7 @@ const FailureView = props => {
       />
       <p className="failure-content">Something went wrong. Please try again</p>
       <button className="try-again-btn" type="button" onClick={tryAgain}>
-        Try again
+        Try Again
       </button>
     </div>
   )

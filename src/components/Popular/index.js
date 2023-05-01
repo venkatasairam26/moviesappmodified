@@ -5,6 +5,7 @@ import MovieBlogs from '../MovieBlogs/index'
 import Header from '../Header/index'
 import Footer from '../Footer'
 import Loading from '../Loading/index'
+import FailureView from '../Failure/index'
 
 import './index.css'
 
@@ -47,6 +48,10 @@ class Popular extends Component {
         popularMovies: updatedData,
         apiStatus: apiStatusConstants.success,
       })
+    } else {
+      this.setState({
+        apiStatus: apiStatusConstants.failure,
+      })
     }
   }
 
@@ -61,6 +66,16 @@ class Popular extends Component {
     )
   }
 
+  renderLoadingView = () => (
+    <div className="popular-loading">
+      <Loading />
+    </div>
+  )
+
+  onClickRetry = () => {
+    this.getPopularMovies()
+  }
+
   renderPopularMovies = () => {
     const {apiStatus} = this.state
 
@@ -68,7 +83,9 @@ class Popular extends Component {
       case apiStatusConstants.success:
         return this.renderSuccessView()
       case apiStatusConstants.inProgress:
-        return <Loading />
+        return this.renderLoadingView()
+      case apiStatusConstants.failure:
+        return <FailureView onClickRetry={this.onClickRetry} />
 
       default:
         return null

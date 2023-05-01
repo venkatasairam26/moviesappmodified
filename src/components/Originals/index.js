@@ -1,8 +1,9 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loading from '../Loading'
-import FailureView from '../Failure/index'
 import ReactSlick from '../ReactSlick/index'
+
+import './index.css'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -41,6 +42,8 @@ class Originals extends Component {
         originalMoviesList: updatedData,
         apiStatus: apiStatusConstants.success,
       })
+    } else {
+      this.setState({apiStatus: apiStatusConstants.failure})
     }
   }
 
@@ -49,6 +52,34 @@ class Originals extends Component {
     return <ReactSlick moviesList={originalMoviesList} />
   }
 
+  renderLoadingView = () => (
+    <div className="t-loading">
+      <Loading />
+    </div>
+  )
+
+  onClickRetry = () => {
+    this.getResponse()
+  }
+
+  renderFailureView = () => (
+    <div className="failure-cont-original">
+      <img
+        src="https://res.cloudinary.com/wavelabs/image/upload/v1682926686/alert-triangle_rkopzd.png"
+        alt="failure view"
+        className="failure-logo-org"
+      />
+      <p className="failure-msg-org">Something went wrong. Please try again</p>
+      <button
+        className="failure-btn-org"
+        type="button"
+        onClick={this.onClickRetry}
+      >
+        Try Again
+      </button>
+    </div>
+  )
+
   renderOriginalMovies = () => {
     const {apiStatus} = this.state
 
@@ -56,9 +87,9 @@ class Originals extends Component {
       case apiStatusConstants.success:
         return this.renderSuccessView()
       case apiStatusConstants.inProgress:
-        return <Loading />
+        return this.renderLoadingView()
       case apiStatusConstants.failure:
-        return <FailureView />
+        return this.renderFailureView()
 
       default:
         return null

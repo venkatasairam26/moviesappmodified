@@ -1,8 +1,7 @@
 .home-cont {
   min-height: 100vh;
   width: 100vw;
-
-  background: #131313;
+  background: #181818;
 }
 .movie-title {
   font-family: 'HK Grotesk';
@@ -44,11 +43,64 @@
   line-height: 31px;
   color: #ffffff;
 }
+.failure-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 466px;
+  width: 1109px;
+  border-radius: 8px;
+  background: #0d0d0d;
+  border-radius: 8px;
+  margin-left: 165px;
+  margin-top: 32px;
+}
+.processing {
+  height: 466px;
+  width: 1109px;
+  border-radius: 8px;
+  background: #0d0d0d;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 165px;
+  margin-top: 32px;
+}
+.failure-msg {
+  height: 18px;
+  width: 251px;
+  left: 595px;
+  top: 367px;
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+
+  color: #ffffff;
+}
 
 @media screen and (min-width: 769px) {
   .home-poster {
     width: 100vw;
     background-size: cover;
+  }
+  .failure-logo {
+    height: 38px;
+    width: 43.99729919433594px;
+    left: 2.0009765625px;
+    top: 4px;
+    border-radius: 0px;
+  }
+  .failure-btn {
+    height: 32px;
+    width: 94px;
+    left: 673.5px;
+    top: 401px;
+    border-radius: 3px;
+    border-radius: 3px;
   }
   .movie-title {
     height: 62px;
@@ -74,6 +126,7 @@
   }
   .originals-trend-cont {
     padding-left: 105px;
+    background-color: transparent;
   }
   .trending-now {
     height: 31px;

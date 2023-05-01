@@ -4,7 +4,6 @@ import Cookies from 'js-cookie'
 import Header from '../Header/index'
 import Footer from '../Footer/index'
 import Loading from '../Loading/index'
-import FailureView from '../Failure/index'
 import TrendingNow from '../TrendingNow/index'
 import Originals from '../Originals/index'
 
@@ -36,7 +35,6 @@ class Home extends Component {
       },
     }
     const response = await fetch(apiUrl, options)
-    console.log(response)
     if (response.ok === true) {
       const data = await response.json()
       const fetchedData = data.results.map(eachMovie => ({
@@ -47,7 +45,6 @@ class Home extends Component {
         posterPath: eachMovie.poster_path,
       }))
       const RandomNum = Math.floor(Math.random() * fetchedData.length)
-      console.log(fetchedData[RandomNum])
       this.setState({
         trendingMoviesList: fetchedData[RandomNum],
         apiStatus: apiStatusConstants.success,
@@ -75,18 +72,6 @@ class Home extends Component {
             </button>
           </div>
         </div>
-        <div className="originals-trend-cont">
-          <div>
-            <h1 className="trending-now">Trending Now</h1>
-            <TrendingNow />
-          </div>
-
-          <div>
-            <h1 className="trending-now">Originals </h1>
-            <Originals />
-          </div>
-        </div>
-        <Footer />
       </div>
     )
   }
@@ -94,7 +79,9 @@ class Home extends Component {
   renderInProgressView = () => (
     <div>
       <Header />
-      <Loading testid="loader" />
+      <div className="processing">
+        <Loading />
+      </div>
     </div>
   )
 
@@ -103,7 +90,26 @@ class Home extends Component {
     this.getTrendingMovies()
   }
 
-  renderFailureView = () => <FailureView onClickRetry={this.onClickRetry} />
+  renderFailureView = () => (
+    <div>
+      <Header />
+      <div className="failure-cont">
+        <img
+          src="https://res.cloudinary.com/wavelabs/image/upload/v1682926686/alert-triangle_rkopzd.png"
+          alt="failure view"
+          className="failure-logo"
+        />
+        <p className="failure-msg">Something went wrong. Please try again</p>
+        <button
+          className="failure-btn"
+          type="button"
+          onClick={this.onClickRetry}
+        >
+          Try Again
+        </button>
+      </div>
+    </div>
+  )
 
   renderHomePage = () => {
     const {apiStatus} = this.state
@@ -124,7 +130,21 @@ class Home extends Component {
   render() {
     return (
       <>
-        <div className="home-cont">{this.renderHomePage()}</div>
+        <div className="home-cont">
+          {this.renderHomePage()}
+          <div className="originals-trend-cont">
+            <div>
+              <h1 className="trending-now">Trending Now</h1>
+              <TrendingNow />
+            </div>
+
+            <div>
+              <h1 className="trending-now">Originals </h1>
+              <Originals />
+            </div>
+          </div>
+          <Footer />
+        </div>
       </>
     )
   }
