@@ -120,7 +120,6 @@ class MovieItemDetails extends Component {
       title,
       ratingAverage,
       ratingCount,
-      posterPath,
     } = {...movieDetailsList[0]}
 
     const movieType = adult ? 'A' : 'U/A'

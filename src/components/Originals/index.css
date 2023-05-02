@@ -33,3 +33,29 @@
 
   color: #ffffff;
 }
+@media screen and (max-width: 786px) {
+  .org-loading {
+    height: 90px;
+    margin-left: 26px;
+    margin-right: 26px;
+    background-color: #0d0d0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    margin-bottom: 60px;
+  }
+}
+@media screen and (min-width: 787px) {
+  .org-loading {
+    height: 130px;
+    margin-left: 60px;
+    margin-right: 165px;
+    margin-bottom: 90px;
+    background-color: #0d0d0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  }
+}

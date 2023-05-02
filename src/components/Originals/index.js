@@ -53,7 +53,7 @@ class Originals extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="t-loading">
+    <div className="org-loading">
       <Loading />
     </div>
   )

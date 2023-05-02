@@ -1,6 +1,6 @@
 .home-cont {
   min-height: 100vh;
-  width: 100vw;
+  min-width: 100vw;
   background: #181818;
 }
 .movie-title {
@@ -56,18 +56,7 @@
   margin-left: 165px;
   margin-top: 32px;
 }
-.processing {
-  height: 466px;
-  width: 1109px;
-  border-radius: 8px;
-  background: #0d0d0d;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 165px;
-  margin-top: 32px;
-}
+
 .failure-msg {
   height: 18px;
   width: 251px;
@@ -86,6 +75,21 @@
   .home-poster {
     width: 100vw;
     background-size: cover;
+  }
+
+  .processing {
+    height: 466px;
+
+    border-radius: 8px;
+    background: #0d0d0d;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 165px;
+    margin-right: 165px;
+    margin-top: 32px;
+    flex-shrink: 1;
   }
   .failure-logo {
     height: 38px;
@@ -141,6 +145,23 @@
 @media screen and (max-width: 768px) {
   .home-poster {
     width: 100%;
+  }
+  .processing {
+    height: 213px;
+    width: 296px;
+    background-color: #0d0d0d;
+    margin-left: 26px;
+    margin-right: 26px;
+    margin-top: 28px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+  }
+  .loading-cont {
+    display: flex;
+    flex-direction: column;
   }
   .movie-title {
     font-size: 36px;

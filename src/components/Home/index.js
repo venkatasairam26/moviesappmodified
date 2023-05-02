@@ -77,7 +77,7 @@ class Home extends Component {
   }
 
   renderInProgressView = () => (
-    <div>
+    <div className="loading-cont">
       <Header />
       <div className="processing">
         <Loading />
