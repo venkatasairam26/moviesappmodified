@@ -22,7 +22,11 @@ class Header extends Component {
   }
 
   onChangeMenu = () => {
-    this.setState(prevState => ({menu: !prevState.menu}))
+    this.setState({menu: true})
+  }
+
+  onCloseMenu = () => {
+    this.setState({menu: false})
   }
 
   onMenuDetails = () => (
@@ -36,7 +40,7 @@ class Header extends Component {
       <Link to="/account" className="text">
         <li className="account">Account</li>
       </Link>
-      <button type="button" className="close-btn" onClick={this.onChangeMenu}>
+      <button type="button" className="close-btn" onClick={this.onCloseMenu}>
         <AiFillCloseCircle className="close-icon" />
       </button>
     </ul>
@@ -45,9 +49,11 @@ class Header extends Component {
   render() {
     const {inputBox} = this.props
     const {menu} = this.state
+    const inputStyle = inputBox ? 'input-card' : 'non-search'
+
     console.log(menu)
     return (
-      <div>
+      <div className="nav-container">
         <nav className="nav-bar">
           <div className="logo-ul-cont">
             <Link to="/">
@@ -60,35 +66,35 @@ class Header extends Component {
 
             <ul className="ul-link">
               <Link to="/" className="route-link">
-                <li className="route-text">Home</li>
+                <li className="home-route-text">Home</li>
               </Link>
               <Link to="/popular" className="route-link">
                 <li className="nav-text">Popular</li>
               </Link>
-              <Link to="/account" className="route-link">
-                <li className="account">Account</li>
-              </Link>
             </ul>
           </div>
           <div className="search-user">
-            {inputBox ? (
-              <input
-                type="search"
-                onChange={this.getSearchValue}
-                className="search-input-ele"
-              />
-            ) : null}
-            <div>
-              <Link to="/search">
-                <button
-                  type="button"
-                  onClick={this.sendSearchValue}
-                  testid="searchButton"
-                  className="search-btn"
-                >
-                  <HiOutlineSearch className="search-icon" />
-                </button>
-              </Link>
+            <div className="btn-elements">
+              <div className={inputStyle}>
+                {' '}
+                {inputBox ? (
+                  <input
+                    type="search"
+                    onChange={this.getSearchValue}
+                    className="search-input-ele"
+                  />
+                ) : null}
+                <Link to="/search">
+                  <button
+                    type="button"
+                    onClick={this.sendSearchValue}
+                    testid="searchButton"
+                    className="search-btn"
+                  >
+                    <HiOutlineSearch className="search-icon" />
+                  </button>
+                </Link>
+              </div>
               <button
                 type="button"
                 className="menu-btn"

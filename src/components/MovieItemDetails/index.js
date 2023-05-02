@@ -14,6 +14,7 @@ const apiStatusConstants = {
   success: 'SUCCESS',
   failure: 'FAILURE',
   inProgress: 'IN_PROGRESS',
+  urlId: '',
 }
 
 class MovieItemDetails extends Component {
@@ -27,6 +28,7 @@ class MovieItemDetails extends Component {
 
   componentDidMount() {
     this.getResponse()
+    console.log('mountcall')
   }
 
   getResponse = async () => {
@@ -96,6 +98,10 @@ class MovieItemDetails extends Component {
     this.getResponse()
   }
 
+  onChangeResponse = () => {
+    this.getResponse()
+  }
+
   renderSuccessView = () => {
     const {
       movieDetailsList,
@@ -114,6 +120,7 @@ class MovieItemDetails extends Component {
       title,
       ratingAverage,
       ratingCount,
+      posterPath,
     } = {...movieDetailsList[0]}
 
     const movieType = adult ? 'A' : 'U/A'
@@ -186,7 +193,11 @@ class MovieItemDetails extends Component {
         <h1 className="more-like">More like this</h1>
         <ul className="popular-movies-list">
           {similarMoviesList.map(each => (
-            <MovieBlogs movieDetails={each} key={each.id} />
+            <MovieBlogs
+              movieDetails={each}
+              key={each.id}
+              onClick={this.onChangeResponse}
+            />
           ))}
         </ul>
         <Footer />
@@ -224,6 +235,8 @@ class MovieItemDetails extends Component {
   }
 
   render() {
+    const {urlId} = this.setState
+    console.log(urlId)
     return <div className="movie-item-cont">{this.renderMoviesItemView()}</div>
   }
 }

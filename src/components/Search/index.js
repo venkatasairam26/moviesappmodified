@@ -73,6 +73,7 @@ class Search extends Component {
 
   renderSearchRoute = () => {
     const {moviesSearchResult} = this.state
+    console.log(moviesSearchResult)
     return moviesSearchResult.length > 0 ? (
       <ul className="popular-movies-list">
         {moviesSearchResult.map(eachMovie => (

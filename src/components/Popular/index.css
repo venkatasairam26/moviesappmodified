@@ -1,18 +1,31 @@
 .popular-page {
   min-height: 100vh;
-  min-width: 100vw;
+  width: 100vw;
   background: #181818;
+  margin: 0px;
+  padding: 0px;
+}
+
+@media screen and (min-width: 786px) {
+  .popular-movies-list {
+    width: 100vw;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding-left: 0px;
+    flex-wrap: wrap;
+  }
+  .popular-loading {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 .popular-movies-list {
+  width: 100vw;
   list-style-type: none;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-}
-.popular-loading {
-  height: 90vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
